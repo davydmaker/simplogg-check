@@ -35,6 +35,7 @@ while i < qtdJogos:
 	if int(jKleft) < 1:
 		i += 1
 		continue
-	j = j[1].strip().replace('Free Steam Key','')
-	print(j + jKleft + 'keys left')
+	posStr = j[1].strip().find('- Free')
+	j = j[1].strip()
+	print(j[:posStr+2] + jKleft + 'keys left')
 	i += 1
