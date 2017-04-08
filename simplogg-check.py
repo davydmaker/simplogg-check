@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 __author__ = "Davyd Maker"
-__version__ = "1.0"
+__version__ = "1.1"
 
 import requests
 
