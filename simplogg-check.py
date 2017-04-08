@@ -7,7 +7,7 @@ __version__ = "1.0"
 import requests
 
 headers = {
-    'User-Agent': 'Mozilla/5.0'
+    'User-Agent': 'Googlebot'
 }
 
 try:
@@ -21,7 +21,7 @@ web = r.text
 r = web.split('<tbody>')
 r = r[1].strip()
 r = r.split('</tbody>')
-r = r[0]
+r = r[0].strip()
 
 qtdJogos = r.count('<tr>')
 
@@ -32,6 +32,9 @@ while i < qtdJogos:
 	jKleft = j[1].split('<td>')
 	j = j[0].split('<td>')
 	jKleft = jKleft[1].strip().replace('<center>','').replace('</center>',' ')
+	if int(jKleft) < 1:
+		i += 1
+		continue
 	j = j[1].strip().replace('Free Steam Key','')
 	print(j + jKleft + 'keys left')
 	i += 1
